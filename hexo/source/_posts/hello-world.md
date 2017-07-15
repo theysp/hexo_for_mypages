@@ -1,5 +1,6 @@
 ---
 title: 第一篇
+comments: true
 ---
 
 ## 终于开始学着写博客了

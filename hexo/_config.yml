@@ -80,3 +80,6 @@ deploy:
   type: git
   repo: https://github.com/theysp/theysp.github.io.git
   branch: master
+  
+# Disqus comments
+disqus_shortname: theysp-github-io

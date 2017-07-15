@@ -35,6 +35,18 @@
   <% } %>
 </article>
 
+<% if(!post.comments){ %>
+<div>
+  <p>post.comments not enable!</p>
+</div>
+<% } %>
+
+<% if(!config.disqus_shortname){ %>
+<div>
+  <p>config.disqus_shortname not set!</p>
+</div>
+<% } %>
+
 <% if (!index && post.comments && config.disqus_shortname){ %>
 <section id="comments">
   <div id="disqus_thread">
