@@ -83,3 +83,6 @@ deploy:
   
 # Disqus comments
 disqus_shortname: theysp-github-io
+
+# Mourn
+mourning: false

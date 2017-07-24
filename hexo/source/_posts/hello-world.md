@@ -1,6 +1,11 @@
 ---
 title: 第一篇
 comments: true
+categories: "法国生活" #文章分類目錄 可以省略
+tags: #文章標籤 可以省略
+     - 万事开头难
+     - 法国生活
+description: #你對本頁的描述 可以省略
 ---
 
 ## 终于开始学着写博客了
