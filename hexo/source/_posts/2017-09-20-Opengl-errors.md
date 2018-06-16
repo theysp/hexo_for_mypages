@@ -26,6 +26,37 @@ tags:
 不然你永远得不到你想要的东西。
 比如顶点shader中，你加一个modelspacetrans的矩阵吧，这个矩阵如果在程序中不初始化（gluniformxxx)，那么等待你的可能是未知的随机矩阵。
 
+## Shader中，函数返回vec一定要显示定义vec
+比如下面：
+```c++
+
+
+vec3 FloatToRGBData(float attenuationRate){
+	int tmpI = floatBitsToInt(attenuationRate);
+	tmpI = floatBitsToInt(0.0342);
+	int ir = (0xff000000 & tmpI)>>24; //exp part
+	int ig = (0xff0000 & tmpI)>>16;
+	int ib = (0xff00 & tmpI)>>8;
+	float r = ir/256.0;
+	float g = ig/256.0;
+	float b = ib/256.0;
+	return vec3(r,g,b);  //正确写法
+}
+
+vec3 FloatToRGBData(float attenuationRate){
+	int tmpI = floatBitsToInt(attenuationRate);
+	tmpI = floatBitsToInt(0.0342);
+	int ir = (0xff000000 & tmpI)>>24; //exp part
+	int ig = (0xff0000 & tmpI)>>16;
+	int ib = (0xff00 & tmpI)>>8;
+	float r = ir/256.0;
+	float g = ig/256.0;
+	float b = ib/256.0;
+	return (r,g,b);  //错误写法
+}
+
+```
+
 ## 渲染每个场景前，一定也要初始化要渲染的Buffer
 
 不然会出现这样的情况，比如Buffer里的深度信息都是零，那么你什么也渲染不上去，或者出现各种破烂哦。
